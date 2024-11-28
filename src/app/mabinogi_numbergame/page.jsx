@@ -149,6 +149,7 @@ const MabinogiNumberGame = () => {
         console.log(output)
         if(output.usedCachedResult == true){
             handleUndo();
+            handleFailure();
         }
         setOutput(output);
     }
