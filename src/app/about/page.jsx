@@ -70,7 +70,6 @@ export default function AboutPage() {
           <div id="contact-info">
             <h2>Contact</h2>
             <p>Email: pakyin2018@gmail.com</p>
-            <p>Phone: (+852) 6461-3443</p>
           </div>
         </div>
       </section>
