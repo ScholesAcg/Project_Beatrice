@@ -178,8 +178,8 @@ const MabinogiNumberGame = () => {
         };
     }, [value]);
 
-    const customOrder = [6, 7, 8, 3, 4, 5, 0, 1, 2];
-
+    // const customOrder = [6, 7, 8, 3, 4, 5, 0, 1, 2];
+    const customOrder = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     return (
         <div className="container">
             <h1 style={title}>瑪奇猜數字小工具</h1>
