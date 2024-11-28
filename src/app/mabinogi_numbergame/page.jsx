@@ -183,25 +183,7 @@ const MabinogiNumberGame = () => {
     const customOrder = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     return (
         <div className="container">
-            <Link
-                href="/"
-                className="nav-link"
-                style={{
-                    display: 'inline-block',
-                    backgroundColor: '#0070f3',
-                    color: '#fff',
-                    padding: '10px 20px',
-                    borderRadius: '8px',
-                    fontWeight: 'bold',
-                    textDecoration: 'none',
-                    textAlign: 'center',
-                    transition: 'background-color 0.3s ease',
-                }}
-                onMouseEnter={(e) => (e.target.style.backgroundColor = '#0056b3')}
-                onMouseLeave={(e) => (e.target.style.backgroundColor = '#0070f3')}
-            >
-                主頁
-            </Link>
+            
 
             <h1 style={title}>瑪奇猜數字小工具</h1>
             <div className="container_row">
@@ -315,7 +297,27 @@ const MabinogiNumberGame = () => {
                         <Typography variant="body1">No data available</Typography>
                     )}
                 </Box>
+                
             </Paper>
+            <Link
+                href="/"
+                className="nav-link"
+                style={{
+                    display: 'inline-block',
+                    backgroundColor: '#0070f3',
+                    color: '#fff',
+                    padding: '10px 20px',
+                    borderRadius: '8px',
+                    fontWeight: 'bold',
+                    textDecoration: 'none',
+                    textAlign: 'center',
+                    transition: 'background-color 0.3s ease',
+                }}
+                onMouseEnter={(e) => (e.target.style.backgroundColor = '#0056b3')}
+                onMouseLeave={(e) => (e.target.style.backgroundColor = '#0070f3')}
+            >
+                緋色重工
+            </Link>
         </div>
     );
 }
