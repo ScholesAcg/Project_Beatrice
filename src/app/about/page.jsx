@@ -37,11 +37,11 @@ export default function AboutPage() {
           <p>Full-Stack Developer | iOS Development | Gamer</p>
           <br />
           <p>
-            I'm a Higher Diploma graduate in Software Engineering and Computing from the Hong Kong Polytechnic University (PolyU),
+            I'm a Higher Diploma graduate in Software Engineering and Computing from the Hong Kong Polytechnic University (PolyU), {/* eslint-disable-line react/no-unescaped-entities */}
             currently diving deeper into the realms of JavaScript, Python, and Artificial Intelligence. My passion lies in harnessing
             the power of technology to create innovative solutions that make a difference. From participating in hackathons like the
-            Techathon 2023 to developing projects in React and exploring AI's potential, I'm on a journey to become a skilled developer
-            and a visionary in tech. Dive into my portfolio to see the projects I've worked on and the technologies I'm excited about!
+            Techathon 2023 to developing projects in React and exploring AI's potential, I'm on a journey to become a skilled developer {/* eslint-disable-line react/no-unescaped-entities */}
+            and a visionary in tech. Dive into my portfolio to see the projects I've worked on and the technologies I'm excited about! {/* eslint-disable-line react/no-unescaped-entities */}
           </p>
 
           <h2>Skills</h2>
@@ -54,7 +54,7 @@ export default function AboutPage() {
           </ul>
 
           <h2>Education</h2>
-          <p>2022-2024: The Hong Kong Polytechnic University (PolyU) Bachelor of Science (Honours) Computing</p>
+          <p>2022-2024: The Hong Kong Polytechnic University (PolyU) Bachelor of Science (Honours) Computing</p> 
           <p>2020-2022: Hong Kong Institute of Vocational Education (Sha Tin) Higher Diploma in Software Engineering</p>
 
           <h2>Achievements</h2>

@@ -54,9 +54,9 @@ export function HomePage() {
       <section id="home" className="home-section">
         <div className="container" id="home-container">
           <Image src={profilePhoto} alt="Scholes Ho" className="profile-photo" />
-          <h1>Hello, I'm HO Pak Yin Scholes</h1>
+          <h1>Hello, I'm HO Pak Yin Scholes</h1> {/* eslint-disable-line react/no-unescaped-entities */}
           <p>Welcome to my personal website!</p>
-          <p style={{ color: "rgb(209, 209, 209)" }}>To prevent darkness popup don't stay here too long</p>
+          <p style={{ color: "rgb(209, 209, 209)" }}>To prevent darkness popup don't stay here too long</p> {/* eslint-disable-line react/no-unescaped-entities */}
         </div>
       </section>
 
