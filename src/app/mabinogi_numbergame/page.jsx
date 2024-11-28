@@ -300,7 +300,7 @@ const MabinogiNumberGame = () => {
                 
             </Paper>
             <div>
-                @貝婷 戀乂之舞
+                @貝婷 戀乂之舞030
             </div>
             <Link
                 href="/"
