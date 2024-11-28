@@ -11,8 +11,8 @@ import ShapesSelect from "../../../components/shapes_select";
 import algo_num from "../../../application/algo_num";
 import { option_one } from "./options";
 import { option_two } from "./options";
-
-import { container, container_column, container_row, title, grid, inputstyle } from "./style";
+import './style.css';
+import { title, inputstyle } from "./style";
 
 const MabinogiNumberGame = () => {
     const [showAlert, setShowAlert] = useState(false);
@@ -28,6 +28,7 @@ const MabinogiNumberGame = () => {
     const [selectedCircleValue, setSelectedCircleValue] = useState("");
     const [selectedTriangelValue, setSelectedTriangelValue] = useState("");
 
+    const [undoStack, setUndoStack] = useState([]);
     const [stackValue, setStackValue] = useState([]);
 
     const handleFailure = () => {
@@ -90,8 +91,8 @@ const MabinogiNumberGame = () => {
     const handleEnter = () => {
         setEnterIsClicked(true);
         setTimeout(() => setEnterIsClicked(false), 100);
-        
-        
+
+
 
         if (parseInt(selectedCircleValue) + parseInt(selectedTriangelValue) > 3) {
             handleFailure();
@@ -101,21 +102,35 @@ const MabinogiNumberGame = () => {
             handleFailure();
             return
         }
-        if (value.length >3 || value.length<3) {
+        if (value.length > 3 || value.length < 3) {
             handleFailure();
             return
         }
+
+        setUndoStack((prevUndoStack) => [...prevUndoStack, stackValue]);
 
         setStackValue((prevStackValue) => [...prevStackValue, {
             input: value.split('').map(Number),
             correct: parseInt(selectedCircleValue),
             misplaced: parseInt(selectedTriangelValue),
         },])
+
+        
+
         setValue("");
         setSelectedCircleValue("");
         setSelectedTriangelValue("");
-        
+
     }
+
+    const handleUndo = () => {
+        if (undoStack.length > 0) {
+            const lastState = undoStack[undoStack.length - 1];
+            setUndoStack((prevUndoStack) => prevUndoStack.slice(0, -1));
+            setStackValue(lastState);
+        }
+    };
+
 
     const handleAfterFailure = () => {
         setValue("");
@@ -123,14 +138,18 @@ const MabinogiNumberGame = () => {
         setSelectedTriangelValue("");
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         handleCalculation();
-    },[stackValue])
+    }, [stackValue])
 
 
 
     const handleCalculation = () => {
         const output = algo_num(stackValue)
+        console.log(output)
+        if(output.usedCachedResult == true){
+            handleUndo();
+        }
         setOutput(output);
     }
 
@@ -161,10 +180,12 @@ const MabinogiNumberGame = () => {
     const customOrder = [6, 7, 8, 3, 4, 5, 0, 1, 2];
 
     return (
-        <div style={container}>
-            <div style={container_row}>
-                <div style={container_column}>
-                    <h1 style={title}>瑪奇猜數字小工具</h1>
+        <div className="container">
+            <h1 style={title}>瑪奇猜數字小工具</h1>
+            <div className="container_row">
+
+                <div className="container_column">
+
                     <Box sx={{
                         width: "100%",
                         display: "flex",
@@ -172,10 +193,10 @@ const MabinogiNumberGame = () => {
                     }}
                     >
                         <NumberInput style={inputstyle} label="輸入數字" value={value} onChange={handleChange} />
-                        <ClearGridCell onClick={handleCClick} isClicked={clearisClicked}/>
+                        <ClearGridCell onClick={handleCClick} isClicked={clearisClicked} />
                     </Box>
 
-                    <div style={grid}>
+                    <div className="grid">
                         {
                             /*Array.from({ length: 9 }, (_, i) => (
                                 <GridCell
@@ -196,14 +217,14 @@ const MabinogiNumberGame = () => {
                         }
                         <ShapesSelect options={option_one} value={selectedCircleValue} onChange={handleCircleSelectChange} displayEmpty />
                         <ShapesSelect options={option_two} value={selectedTriangelValue} onChange={handleTriangelSelectChange} displayEmpty />
-                        <EnterGridCell onClick={handleEnter} isClicked={enterisClicked}/>
+                        <EnterGridCell onClick={handleEnter} isClicked={enterisClicked} />
                     </div>
-
+                    <ClearALLGridCell onClick={handleCALLClick} isClicked={cALLisClicked} />
 
                 </div>
                 <NumberStack stack={stackValue} />
             </div>
-            <ClearALLGridCell onClick={handleCALLClick} isClicked={cALLisClicked} />
+
             {/* Floating Alert */}
             <Snackbar
                 open={showAlert}
@@ -232,7 +253,7 @@ const MabinogiNumberGame = () => {
                 </Box>
             </Snackbar>
 
-            <Paper elevation={3} sx={{ padding: 2, margin: 2 }}>
+            <Paper elevation={3} sx={{ padding: 2, margin: 2, maxWidth: 605 }}>
                 <Typography variant="h6" gutterBottom>
                     符合條件的組合數量: {output.count}
                 </Typography>

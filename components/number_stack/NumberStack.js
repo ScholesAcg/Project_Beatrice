@@ -3,7 +3,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 
 const StackTable = ({ stack }) => {
   return (
-    <TableContainer component={Paper} style={{ marginTop: '2rem' }}>
+    <TableContainer component={Paper} style={{ marginTop: '10px', marginBottom: '10px', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}>
       <Table>
         <TableHead>
           <TableRow>

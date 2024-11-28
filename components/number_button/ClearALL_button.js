@@ -14,8 +14,8 @@ const ClearALLGridCell = ({ index, isClicked, onClick }) => {
         transform: isClicked ? "scale(0.9)" : "scale(1)", // 縮放動畫
         transition: "transform 0.2s ease", // 動畫過渡效果
         fontSize: "1rem",
-        minWidth: "300px",
-        width: "600px"
+        minWidth: "323px",
+        width: "100%"
       }}
       onClick={onClick}
     >

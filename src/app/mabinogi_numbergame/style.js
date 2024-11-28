@@ -1,3 +1,4 @@
+
 export const container = {
     display: "flex",
     flexDirection: "column",
@@ -13,6 +14,8 @@ export const container = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+
+    
   };
 
   export const container_column = {

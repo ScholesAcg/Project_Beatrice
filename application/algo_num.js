@@ -1,6 +1,8 @@
 function generateCombinations(inputConditions) {
     const digits = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     let possibleCombinations = [];
+    let cachedResult = null;
+    let usedCachedResult = false;
 
     // 生成所有可能的組合（3位數字且不重複）
     function permute(arr, m = []) {
@@ -31,9 +33,18 @@ function generateCombinations(inputConditions) {
 
             return correctCount === correct && misplacedCount === misplaced;
         });
+
+        if (possibleCombinations.length === 0 && cachedResult) {
+            possibleCombinations = cachedResult;
+            usedCachedResult = true;
+            break;
+        }
+
+        cachedResult = [...possibleCombinations];
+        
     }
 
-    return { combinations: possibleCombinations, count: possibleCombinations.length };
+    return { combinations: possibleCombinations, count: possibleCombinations.length, usedCachedResult };
 }
 
 // 測試範例
