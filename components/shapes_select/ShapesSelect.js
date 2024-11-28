@@ -90,6 +90,7 @@ const SelectWithShapes = ({ options = [], value, onChange }) => {
         <Select
             value={value}
             onChange={onChange}
+            MenuProps={{ disableScrollLock: true }}
         >
             {options && options.length > 0 && options.map((option, index) => (
                 <MenuItem key={index} value={option.value}>
